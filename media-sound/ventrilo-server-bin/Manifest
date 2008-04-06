@@ -1,0 +1,8 @@
+DIST ventrilo_2_1_2_server_linux.tar.gz 137078 RMD160 55585d64ddaaf340efc59356d53ae572417bc837 SHA1 eb06249d75f1a6d3c0692e6165ce09cf0859cd79 SHA256 8b9b027a33b75f34901bb75fd51a6509ddb2fb1214688927cfcef54008c0f9a7
+EBUILD ventrilo-server-bin-2.1.2.ebuild 744 RMD160 285aaba4cc8b2eb978167bb8b7d426ca01589084 SHA1 05375532b2ee521a82d328c5b1f442d46da1cb8d SHA256 5af46647592a63e1b24bb2bcfc47b994fe1af1070b0a3c0d939dea3424874e6a
+MD5 f5985b3410ca86df3f5f7f6d01d21c41 ventrilo-server-bin-2.1.2.ebuild 744
+RMD160 285aaba4cc8b2eb978167bb8b7d426ca01589084 ventrilo-server-bin-2.1.2.ebuild 744
+SHA256 5af46647592a63e1b24bb2bcfc47b994fe1af1070b0a3c0d939dea3424874e6a ventrilo-server-bin-2.1.2.ebuild 744
+MD5 b9d4527957ccdcea78d68c6d6df09bbd files/digest-ventrilo-server-bin-2.1.2 283
+RMD160 7f6e71bc9ccc9e3eddc73f6df1ceca6d83c04e37 files/digest-ventrilo-server-bin-2.1.2 283
+SHA256 44b750636aae8e2993b887fdd8d26bc87d40f61177669a87ac6538daaae038b1 files/digest-ventrilo-server-bin-2.1.2 283

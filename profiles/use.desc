@@ -1,0 +1,3 @@
+kde - build the kicker applet
+qt3 - build the Qt widget
+ncurses - build the ncurses client

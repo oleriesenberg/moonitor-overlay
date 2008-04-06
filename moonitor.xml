@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<layman>
+ 
+  <overlay
+      type = "svn"
+      src  = "svn://moonitor.org/overlay"
+      contact = "moonitor@moonitor.org"
+      status  = "inofficial"
+      name = "moonitor">
+ 
+    <link>
+      http://moonitor.org
+    </link>
+ 
+    <description>
+      This overlay currently only hosts the moonitor emerge monitor and deps.
+    </description>
+ 
+  </overlay>
+</layman>

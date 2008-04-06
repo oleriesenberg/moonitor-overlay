@@ -1,0 +1,8 @@
+DIST ts2_server_rc2_202319.tar.bz2 1155345 RMD160 b941f5ec105bc86ba124d1a9a2763e0617a8f6bb SHA1 645dc564a7dda61212c8c6e7f2d5e6a3094f9c74 SHA256 56ae9f2cbb83c04102561ca377cedb6881579a80493b2b0ebf73afe2ac279a67
+EBUILD teamspeak2-server-bin-2.0.23.19.ebuild 2484 RMD160 2d6b551c154baeed024a6efa4083beca4bea6203 SHA1 c5ddd0e574321b7c4c174e020a7169f570f648d9 SHA256 fa939d0f9fc94a241c14580ade71bef1b08394707510c921231fec56b9f42d2e
+MD5 8ead0959a2d3426d31f53bae21691384 teamspeak2-server-bin-2.0.23.19.ebuild 2484
+RMD160 2d6b551c154baeed024a6efa4083beca4bea6203 teamspeak2-server-bin-2.0.23.19.ebuild 2484
+SHA256 fa939d0f9fc94a241c14580ade71bef1b08394707510c921231fec56b9f42d2e teamspeak2-server-bin-2.0.23.19.ebuild 2484
+MD5 fcb09d2015915bf6ac539ec0bba8459a files/digest-teamspeak2-server-bin-2.0.23.19 271
+RMD160 3990d3d928949e5caf6e0ebd3d0a10a795283fe2 files/digest-teamspeak2-server-bin-2.0.23.19 271
+SHA256 389396ec616cb4e81b32de3053efdbdcf0b64381dce27ccb28c19f43952f56a9 files/digest-teamspeak2-server-bin-2.0.23.19 271
