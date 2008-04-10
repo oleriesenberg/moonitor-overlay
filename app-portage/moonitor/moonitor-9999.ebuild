@@ -4,7 +4,7 @@
 
 inherit git qt3 cmake-utils
 
-EGIT_REPO_URI="git://moonitor.org/moonitor/moonitor.git"
+EGIT_REPO_URI="git://moonitor.org/moonitor.git"
 
 DESCRIPTION="A dbus monitoring suite for emerge with KDE panel support"
 
