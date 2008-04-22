@@ -4,7 +4,7 @@
 
 inherit git cmake-utils
 
-EGIT_REPO_URI="git://moonitor.org/tek-utils.git"
+EGIT_REPO_URI="git://moonitor.org/tek.git"
 
 HOMEPAGE=""
 
@@ -22,8 +22,7 @@ IUSE=""
 
 DEPEND="dev-util/cmake"
 
-RDEPEND=">=dev-lang/python-2.5
-		 dev-python/tek"
+RDEPEND=">=dev-lang/python-2.5"
 
 src_compile() {
 	cmake-utils_src_compile
