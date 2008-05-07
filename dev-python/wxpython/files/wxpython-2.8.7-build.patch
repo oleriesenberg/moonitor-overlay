@@ -1,0 +1,42 @@
+diff -urN wxPython-src-2.8.7.1/wxPython/config.py wxPython-src-2.8.7.1.new/wxPython/config.py
+--- wxPython-src-2.8.7.1/wxPython/config.py	2007-11-29 02:32:01.000000000 +0300
++++ wxPython-src-2.8.7.1.new/wxPython/config.py	2008-04-29 14:15:52.000000000 +0400
+@@ -749,7 +749,7 @@
+ 
+ 
+ class MyUnixCCompiler(distutils.unixccompiler.UnixCCompiler):
+-    def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts):
++    def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts, lang=''):
+         compiler_so = self.compiler_so
+         if sys.platform == 'darwin':
+             compiler_so = _darwin_compiler_fixup(compiler_so, cc_args + extra_postargs)
+@@ -788,7 +788,7 @@
+ import distutils.cygwinccompiler
+ from distutils.errors import DistutilsExecError, CompileError
+ 
+-def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts):
++def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts, lang=''):
+     if ext == '.rc' or ext == '.res':
+         # gcc needs '.res' and '.rc' compiled to object files !!!
+         try:
+diff -urN wxPython-src-2.8.7.1/wxPython/wx/build/config.py wxPython-src-2.8.7.1.new/wxPython/wx/build/config.py
+--- wxPython-src-2.8.7.1/wxPython/wx/build/config.py	2007-11-29 02:32:01.000000000 +0300
++++ wxPython-src-2.8.7.1.new/wxPython/wx/build/config.py	2008-04-29 14:13:43.000000000 +0400
+@@ -749,7 +749,7 @@
+ 
+ 
+ class MyUnixCCompiler(distutils.unixccompiler.UnixCCompiler):
+-    def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts):
++    def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts, lang=''):
+         compiler_so = self.compiler_so
+         if sys.platform == 'darwin':
+             compiler_so = _darwin_compiler_fixup(compiler_so, cc_args + extra_postargs)
+@@ -788,7 +788,7 @@
+ import distutils.cygwinccompiler
+ from distutils.errors import DistutilsExecError, CompileError
+ 
+-def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts):
++def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts, lang=''):
+     if ext == '.rc' or ext == '.res':
+         # gcc needs '.res' and '.rc' compiled to object files !!!
+         try:
