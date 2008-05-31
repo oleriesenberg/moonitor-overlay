@@ -20,7 +20,8 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
-DEPEND="dev-util/cmake"
+DEPEND="dev-util/cmake
+		dev-util/git"
 
 RDEPEND=">=dev-lang/python-2.5"
 
