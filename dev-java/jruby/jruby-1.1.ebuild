@@ -36,6 +36,7 @@ RUBY_HOME=/usr/share/${PN}/lib/ruby
 SITE_RUBY=${RUBY_HOME}/site_ruby
 GEMS=${RUBY_HOME}/gems
 
+
 pkg_setup() {
 	java-pkg-2_pkg_setup
 
@@ -95,6 +96,9 @@ src_test() {
 }
 
 src_install() {
+	# Prevents Sandbox collision, thx to eliasp
+	mkdir $WORKDIR/fakehome && HOME=$WORKDIR/fakehome 
+
 	java-pkg_dojar lib/${PN}.jar
 
 	dodoc README docs/{*.txt,README.*,BeanScriptingFramework} || die
