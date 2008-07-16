@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit git
 
 EGIT_REPO_URI="git://moonitor.org/ndkpp.git"
 
