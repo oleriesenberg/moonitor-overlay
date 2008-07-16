@@ -23,7 +23,7 @@ BDEPS=">=dev-libs/boost-1.34.1
 		sys-libs/dbus-c++
 		kde? ( || ( kde-base/kicker kde-base/kdebase ) )
 		qt3? ( >=x11-libs/qt-3.3 )
-		ncurses? ( =sys-libs/ndk++-9999 )"
+		ncurses? ( =sys-libs/ndk++-scm )"
 
 DEPEND="${BDEPS}
 		dev-util/cmake"
