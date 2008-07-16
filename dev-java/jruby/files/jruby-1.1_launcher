@@ -1,0 +1,34 @@
+# Split out any -J argument for passing to the JVM.
+# Scanning for args is aborted by '--'.
+declare -a java_args
+declare -a ruby_args
+
+while [ $# -gt 0 ]
+do
+    case "$1" in
+    # Stuff after '-J' in this argument goes to JVM
+    -J*)
+        val=${1:2}
+        java_args=("${java_args[@]}" "${1:2}")
+        ;;
+     # Match switches that take an argument
+     -e|-I|-S) ruby_args=("${ruby_args[@]}" "$1" "$2"); shift ;;
+     # Match same switches with argument stuck together
+     -e*|-I*|-S*) ruby_args=("${ruby_args[@]}" "$1" ) ;;
+     # Abort processing on the double dash
+     --) break ;;
+     # Other opts go to ruby
+     -*) ruby_args=("${ruby_args[@]}" "$1") ;;
+     # Abort processing on first non-opt arg
+     *) break ;;
+    esac
+    shift
+done
+
+# Append the rest of the arguments
+ruby_args=("${ruby_args[@]}" "$@")
+
+# Put the ruby_args back into the position arguments $1, $2 etc
+set -- "${ruby_args[@]}"
+
+JAVA_OPTS="$JAVA_OPTS ${java_args[@]}"
