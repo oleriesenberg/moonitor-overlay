@@ -2,11 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit git
 
-ESVN_REPO_URI="svn://moonitor.org/ndk++/trunk/"
-
-ESVN_PROJECT="ndk++-svn"
+EGIT_REPO_URI="git://moonitor.org/ndkpp.git"
 
 DESCRIPTION="A C++ ncurses toolkit"
 
