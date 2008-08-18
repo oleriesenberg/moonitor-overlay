@@ -4,7 +4,7 @@
 
 inherit git
 
-EGIT_REPO_URI="git://anongit.freedesktop.org/git/dbus/dbus-c++/"
+EGIT_REPO_URI="git://gitorious.org/dbus-cplusplus/mainline.git"
 
 DESCRIPTION="C++ bindings for dbus"
 HOMEPAGE="http://dev.openwengo.com/"
