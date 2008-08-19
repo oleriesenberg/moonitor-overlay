@@ -20,7 +20,7 @@ DEPEND="sys-apps/dbus"
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	./autogen.sh || die "foo"
+	./autogen.sh --prefix=/usr || die "foo"
 	#econf || die "moo"
 }
 
