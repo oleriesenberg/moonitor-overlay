@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 
 src_compile() {
 	./autogen.sh || die "foo"
-	econf || die "moo"
+	#econf || die "moo"
 }
 
 src_install() {
