@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 
-IUSE="kde qt3 ncurses"
+IUSE="kde qt3 ncurses paludis"
 
 BDEPS=">=dev-libs/boost-1.34.1
 		sys-libs/dbus-c++
@@ -45,7 +45,7 @@ pgk_setup() {
 
 src_compile() {
 	mycmakeargs="$(cmake-utils_use_with qt3) $(cmake-utils_use_with kde)
-	$(cmake-utils_use_with ncurses)"
+	$(cmake-utils_use_with ncurses) $(cmake-utils_use_with paludis)"
 	cmake-utils_src_compile
 }
 
