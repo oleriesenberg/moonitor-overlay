@@ -23,7 +23,7 @@ IUSE=""
 DEPEND="dev-util/cmake"
 
 RDEPEND=">=dev-lang/python-2.5
-		 >=app-portage/eix-0.12.1
+		 >=app-portage/eix-0.15.0
 		 dev-python/tek"
 
 src_compile() {
