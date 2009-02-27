@@ -79,3 +79,13 @@ src_compile() {
 	set_arch_to_portage
 	ABI="${myABI}"
 }
+
+src_install() {
+	linux-mod_src_install
+	insinto ${ROOT}/usr/share/${PF}
+	doins lib/LICENSE.txt || die "doins lib/LICENSE.txt failed"
+}
+pkg_postinst() {
+	linux-mod_pkg_postinst
+	einfo "You must read /usr/share/doc/${PF}/LICENSE.txt before using this software."
+}
