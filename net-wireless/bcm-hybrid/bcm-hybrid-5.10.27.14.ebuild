@@ -87,5 +87,5 @@ src_install() {
 }
 pkg_postinst() {
 	linux-mod_pkg_postinst
-	einfo "You must read /usr/share/doc/${PF}/LICENSE.txt before using this software."
+	ewarn "You must read /usr/share/doc/${PF}/LICENSE.txt before using this software."
 }
