@@ -24,4 +24,5 @@ PDEPEND=""
 
 pkg_setup() {
 	linux-mod_pkg_setup
+	MODULE_NAMES="bcm_hybrid(net:${S})"
 }
