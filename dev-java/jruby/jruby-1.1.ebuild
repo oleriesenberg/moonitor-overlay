@@ -7,7 +7,7 @@ inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Java based ruby interpreter implementation"
 HOMEPAGE="http://jruby.codehaus.org/"
-SRC_URI="http://dist.codehaus.org/${PN}/${PN}-src-${PV}.tar.gz"
+SRC_URI="http://dist.codehaus.org/${PN}/${PV}/${PN}-src-${PV}.tar.gz"
 
 LICENSE="|| ( CPL-1.0 GPL-2 LGPL-2.1 )"
 SLOT="0"
