@@ -25,6 +25,10 @@ DEPEND="dev-util/cmake
 
 RDEPEND=">=dev-lang/python-2.5"
 
+src_unpack(){
+	git_src_unpack
+}
+
 src_compile() {
 	cmake-utils_src_compile
 }

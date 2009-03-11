@@ -43,6 +43,10 @@ pgk_setup() {
 	fi
 }
 
+src_unpack(){
+	git_src_unpack
+}
+
 src_compile() {
 	mycmakeargs="$(cmake-utils_use_with qt3) $(cmake-utils_use_with kde)
 	$(cmake-utils_use_with ncurses) $(cmake-utils_use_with paludis)"

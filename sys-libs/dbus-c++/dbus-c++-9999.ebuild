@@ -19,6 +19,10 @@ DEPEND="sys-apps/dbus"
 
 RDEPEND="${DEPEND}"
 
+src_unpack(){
+	git_src_unpack
+}
+
 src_compile() {
 	./autogen.sh --prefix=/usr || die "foo"
 	#econf || die "moo"

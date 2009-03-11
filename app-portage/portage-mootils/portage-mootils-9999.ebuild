@@ -26,6 +26,10 @@ RDEPEND=">=dev-lang/python-2.5
 		 >=app-portage/eix-0.15.0
 		 dev-python/tek"
 
+src_unpack(){
+	git_src_unpack
+}
+
 src_compile() {
 	cmake-utils_src_compile
 }

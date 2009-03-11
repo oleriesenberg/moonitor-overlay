@@ -23,6 +23,10 @@ DEPEND=">=sys-libs/ncursesxx-0.0.1_beta5"
 
 RDEPEND="${DEPEND}"
 
+src_unpack(){
+	git_src_unpack
+}
+
 src_compile() {
 	emake
 }
