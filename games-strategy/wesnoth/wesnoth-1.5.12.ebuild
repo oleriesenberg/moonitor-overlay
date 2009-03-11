@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/wesnoth/wesnoth-1.4.7-r1.ebuild,v 1.1 2009/02/23 20:35:55 mr_bones_ Exp $
+# $Header: $
 
 EAPI=2
 inherit eutils toolchain-funcs flag-o-matic games
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/wesnoth/${PN}-${MY_PV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~ppc64 sparc x86 ~x86-fbsd"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="dedicated editor lite nls server smallgui static tinygui tools"
 
 RDEPEND=">=media-libs/libsdl-1.2.7[X]
@@ -21,7 +21,8 @@ RDEPEND=">=media-libs/libsdl-1.2.7[X]
 	!dedicated? (
 		x11-libs/libX11
 		>=media-libs/sdl-mixer-1.2[vorbis]
-		>=media-libs/sdl-image-1.2[png,jpeg]
+		>=media-libs/sdl-image-1.2.7[png,jpeg]
+		>=media-libs/sdl-ttf-2.0.9[X]
 		>=media-libs/freetype-2 )
 		dev-lang/python
 	nls? ( virtual/libintl )"
@@ -67,7 +68,6 @@ src_prepare() {
 			doc/man/Makefile.in \
 			|| die "sed failed"
 	fi
-	epatch "${FILESDIR}"/no-python.patch
 }
 
 src_configure() {
@@ -91,7 +91,6 @@ src_configure() {
 		--with-icondir=/usr/share/icons \
 		--with-desktopdir=/usr/share/applications \
 		--docdir=/usr/share/doc/${PF} \
-		--disable-python \
 		$(use_enable smallgui) \
 		$(use_enable tinygui) \
 		$(use_enable lite) \
@@ -106,7 +105,6 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
-	rm -fr "${D}${GAMES_DATADIR}"/wesnoth/data/{ais,campaigns/Descent_Into_Darkness/ais}
 	dodoc changelog
 	if use dedicated || use server; then
 		keepdir "${GAMES_STATEDIR}/run/wesnothd"
