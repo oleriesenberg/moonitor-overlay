@@ -20,7 +20,7 @@ IUSE=""
 src_unpack() {
     unpack ${A}
 	cd ${S}
-	./configure
+	./configure --prefix=/usr
 }
 
 src_compile() {
