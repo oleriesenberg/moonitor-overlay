@@ -39,16 +39,6 @@ enable_use() {
 	fi
 }
 
-pgk_setup() {
-	if ! built_with_use dev-libs/boost threads ; then
-		eerror
-		eerror "dev-libs/boost missing threads support."
-		eerror "Please rebuild boost with USE=\"threads\""
-		eerror
-		die
-	fi
-}
-
 src_compile() {
 	einfo "Running autoreconf..."
 	autoreconf -fvi > build.log 2>&1 \

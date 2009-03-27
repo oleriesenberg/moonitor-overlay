@@ -38,14 +38,7 @@ enable_use() {
 	fi
 }
 
-pgk_setup() {
-	if ! built_with_use dev-libs/boost threads ; then
-		eerror
-		eerror "dev-libs/boost missing threads support."
-		eerror "Please rebuild boost with USE=\"threads\""
-		eerror
-		die
-	fi
+pkg_setup() {
 	if ! use kde; then
 		eerror
 		eerror "Not using KDE is not yet supported."
@@ -69,7 +62,7 @@ src_compile() {
 }
 
 src_install() {
-        make install DESTDIR=${D} \
+	make install DESTDIR=${D} \
 	|| die "Error: make install failed!"
 }
 

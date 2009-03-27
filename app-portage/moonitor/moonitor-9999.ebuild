@@ -33,16 +33,6 @@ RDEPEND="${BDEPS}
 	 	app-portage/portage-bashrc-ng
 	 	app-portage/portage-utils"
 
-pgk_setup() {
-	if ! built_with_use dev-libs/boost threads ; then
-		eerror
-		eerror "dev-libs/boost missing threads support."
-		eerror "Please rebuild boost with USE=\"threads\""
-		eerror
-		die
-	fi
-}
-
 src_unpack(){
 	git_src_unpack
 }
