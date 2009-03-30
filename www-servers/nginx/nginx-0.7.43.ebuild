@@ -35,7 +35,7 @@ src_unpack() {
 	if use uploadprogress ; then
 		# I'd put this in SRC_URI, but curl has to be run specifically like this
 		cd ${DISTDIR}
-		curl -A "Mozilla/4.0" "http://wiki.codemongers.com/NginxHttpUploadProgressModule?action=AttachFile&do=get&target=nginx_uploadprogress_module-0.5.tar.gz" -o ${UPLOADPROGRESS}-0.5.tar.gz || die "Could not download the upload progress module"
+		curl -A "Mozilla/4.0" "http://wiki.nginx.org/images/8/83/Nginx_uploadprogress_module-0.5.tar.gz" -o ${UPLOADPROGRESS}-0.5.tar.gz || die "Could not download the upload progress module"
 		unpack ${UPLOADPROGRESS}-0.5.tar.gz
 		mv ${UPLOADPROGRESS} ${WORKDIR}
 	fi
