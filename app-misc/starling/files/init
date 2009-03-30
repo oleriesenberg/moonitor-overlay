@@ -1,0 +1,33 @@
+#!/sbin/runscript
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: Exp $
+
+depend() {
+	need net
+}
+
+start() {
+	ebegin "Starting starling"
+
+	local dir="$(dirname ${PIDFILE})"
+	if [ ! -d "${dir}" ]; then
+		einfo " Creating ${dir}"
+		mkdir -p "${dir}"
+	fi
+	chown ${USER} "${dir}"
+
+	/sbin/start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${STARLING_BINARY} \
+		-- -d -P ${PIDFILE} -p ${PORT} -h ${ADDR} -u ${USER} -g ${GROUP} start
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping starling"
+	start-stop-daemon --stop --quiet \
+		--pidfile ${PIDFILE} \
+		--exec ${STARLING_BINARY} stop
+	eend $?
+}
