@@ -23,7 +23,7 @@ KEYWORDS="x86 amd64"
 IUSE="kde4 qt4 paludis daemon"
 
 BDEPS=">=dev-libs/boost-1.34.1
-		sys-libs/dbus-c++
+		~sys-libs/dbus-c++-9999
 		kde4? ( kde-base/plasma-workspace )
 		qt4? ( >=x11-libs/qt-gui-4.4 )"
 
