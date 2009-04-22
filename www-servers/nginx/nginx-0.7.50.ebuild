@@ -9,13 +9,17 @@ DESCRIPTION="Robust, small and high performance http and reverse proxy server"
 UPLOADPROGRESS="nginx_uploadprogress_module"
 FAIR="nginx-upstream-fair"
 
+PASSENGER_VERSION="2.2.1"
+PASSENGER_URI="http://rubyforge.org/frs/download.php/55316/passenger-2.2.1.tar.gz"
+PASSENGER="passenger-${PASSENGER_VERSION}"
+
 HOMEPAGE="http://nginx.net/"
 SRC_URI="http://sysoev.ru/nginx/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 ~ppc x86"
 IUSE="addition debug fastcgi flv imap pcre perl ssl status sub webdav zlib
-uploadprogress fair random-index"
+uploadprogress fair passenger random-index"
 
 DEPEND="dev-lang/perl
 	pcre? ( >=dev-libs/libpcre-4.2 )
@@ -45,6 +49,13 @@ src_unpack() {
 		cd ${DISTDIR}
 		git clone git://github.com/gnosek/nginx-upstream-fair.git ${FAIR} || die "Could not \`git clone\' the upstream-fair module"
 		mv ${FAIR} ${WORKDIR}
+	fi
+
+	if use passenger ; then
+	  cd ${DISTDIR}
+      wget ${PASSENGER_URI} -O ${PASSENGER}.tar.gz || die "Error downloading Passenger"
+      unpack ${PASSENGER}.tar.gz
+	  mv ${PASSENGER} ${WORKDIR}
 	fi
 }
 
@@ -80,6 +91,7 @@ src_compile() {
 
 	use uploadprogress && myconf="${myconf} --add-module=../${UPLOADPROGRESS}"
 	use fair && myconf="${myconf} --add-module=../${FAIR}"
+	use passenger && myconf="${myconf} --add-module=../${PASSENGER}/ext/nginx"
 
 	./configure \
 		--prefix=/usr \
