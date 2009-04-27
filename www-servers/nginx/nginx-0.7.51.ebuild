@@ -143,7 +143,7 @@ pkg_postinst() {
 		if [ ! -f "${ROOT}"/etc/ssl/${PN}/${PN}.key ]; then
 			dodir "${ROOT}"/etc/ssl/${PN}
 			insinto "${ROOT}"etc/ssl/${PN}/
-					
+
 			insopts -m0644 -o nginx -g nginx
 			install_cert /etc/ssl/nginx/nginx
 		fi
