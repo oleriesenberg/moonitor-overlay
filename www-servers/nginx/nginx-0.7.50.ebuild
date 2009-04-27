@@ -9,9 +9,10 @@ DESCRIPTION="Robust, small and high performance http and reverse proxy server"
 UPLOADPROGRESS="nginx_uploadprogress_module"
 FAIR="nginx-upstream-fair"
 
-PASSENGER_VERSION="2.2.1"
-PASSENGER_URI="http://rubyforge.org/frs/download.php/55316/passenger-2.2.1.tar.gz"
-PASSENGER="passenger-${PASSENGER_VERSION}"
+if use passenger ; then
+	PASSENGER_ROOT=`passenger-config --root`
+	PASSENGER_VERSION=`passenger-config --version`
+fi
 
 HOMEPAGE="http://nginx.net/"
 SRC_URI="http://sysoev.ru/nginx/${P}.tar.gz"
@@ -25,7 +26,8 @@ DEPEND="dev-lang/perl
 	pcre? ( >=dev-libs/libpcre-4.2 )
 	ssl? ( dev-libs/openssl )
 	zlib? ( sys-libs/zlib )
-	perl? ( >=dev-lang/perl-5.8 )"
+	perl? ( >=dev-lang/perl-5.8 )
+	passenger? ( >=www-servers/passenger-2.2.1 )"
 
 pkg_setup() {
 	ebegin "Creating nginx user and group"
@@ -39,7 +41,11 @@ src_unpack() {
 	if use uploadprogress ; then
 		# I'd put this in SRC_URI, but curl has to be run specifically like this
 		cd ${DISTDIR}
-		curl -A "Mozilla/4.0" "http://wiki.nginx.org/images/8/83/Nginx_uploadprogress_module-0.5.tar.gz" -o ${UPLOADPROGRESS}-0.5.tar.gz || die "Could not download the upload progress module"
+
+		curl -A "Mozilla/4.0" \
+		"http://wiki.nginx.org/images/8/83/Nginx_uploadprogress_module-0.5.tar.gz" \
+		-o ${UPLOADPROGRESS}-0.5.tar.gz || die "Could not download the upload progress module"
+
 		unpack ${UPLOADPROGRESS}-0.5.tar.gz
 		mv ${UPLOADPROGRESS} ${WORKDIR}
 	fi
@@ -52,10 +58,7 @@ src_unpack() {
 	fi
 
 	if use passenger ; then
-	  cd ${DISTDIR}
-      wget ${PASSENGER_URI} -O ${PASSENGER}.tar.gz || die "Error downloading Passenger"
-      unpack ${PASSENGER}.tar.gz
-	  mv ${PASSENGER} ${WORKDIR}
+		cp -R ${PASSENGER_ROOT} ${WORKDIR}
 	fi
 }
 
@@ -91,7 +94,7 @@ src_compile() {
 
 	use uploadprogress && myconf="${myconf} --add-module=../${UPLOADPROGRESS}"
 	use fair && myconf="${myconf} --add-module=../${FAIR}"
-	use passenger && myconf="${myconf} --add-module=../${PASSENGER}/ext/nginx"
+	use passenger && myconf="${myconf} --add-module=../passenger-${PASSENGER_VERSION}/ext/nginx"
 
 	./configure \
 		--prefix=/usr \
@@ -128,6 +131,11 @@ src_install() {
 		cd "${S}"/objs/src/http/modules/perl/
 		einstall DESTDIR="${D}"|| die "failed to install perl stuff"
 	}
+
+	if use passenger ; then
+		exeinto "${PASSENGER_ROOT}"/ext/nginx
+		doexe ${WORKDIR}/passenger-"${PASSENGER_VERSION}"/ext/nginx/HelperServer
+	fi
 }
 
 pkg_postinst() {
@@ -135,6 +143,7 @@ pkg_postinst() {
 		if [ ! -f "${ROOT}"/etc/ssl/${PN}/${PN}.key ]; then
 			dodir "${ROOT}"/etc/ssl/${PN}
 			insinto "${ROOT}"etc/ssl/${PN}/
+
 			insopts -m0644 -o nginx -g nginx
 			install_cert /etc/ssl/nginx/nginx
 		fi
