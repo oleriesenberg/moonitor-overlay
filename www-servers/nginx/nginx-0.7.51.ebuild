@@ -20,7 +20,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 ~ppc x86"
 IUSE="addition debug fastcgi flv imap pcre perl ssl status sub webdav zlib
-uploadprogress fair passenger random-index"
+uploadprogress fair passenger random-index ipv6"
 
 DEPEND="dev-lang/perl
 	pcre? ( >=dev-libs/libpcre-4.2 )
@@ -91,6 +91,7 @@ src_compile() {
 	use webdav	&& myconf="${myconf} --with-http_dav_module"
 	use sub		&& myconf="${myconf} --with-http_sub_module"
 	use random-index  && myconf="${myconf} --with-http_random_index_module"
+	use ipv6	&& myconf="${myconf} --with-ipv6"
 
 	use uploadprogress && myconf="${myconf} --add-module=../${UPLOADPROGRESS}"
 	use fair && myconf="${myconf} --add-module=../${FAIR}"
