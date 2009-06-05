@@ -9,11 +9,6 @@ DESCRIPTION="Robust, small and high performance http and reverse proxy server"
 UPLOADPROGRESS="nginx_uploadprogress_module"
 FAIR="nginx-upstream-fair"
 
-if use passenger ; then
-	PASSENGER_ROOT=`passenger-config --root`
-	PASSENGER_VERSION=`passenger-config --version`
-fi
-
 HOMEPAGE="http://nginx.net/"
 SRC_URI="http://sysoev.ru/nginx/${P}.tar.gz"
 LICENSE="BSD"
@@ -25,10 +20,14 @@ DEPEND="dev-lang/perl
 	pcre? ( >=dev-libs/libpcre-4.2 )
 	ssl? ( dev-libs/openssl )
 	zlib? ( sys-libs/zlib )
-	perl? ( >=dev-lang/perl-5.8 )
-	passenger? ( >=www-servers/passenger-2.2.1 )"
+	perl? ( >=dev-lang/perl-5.8 )"
 
 pkg_setup() {
+	if use passenger ; then
+		PASSENGER_ROOT=`passenger-config --root` ||	die "Please install passenger via rubygems to use it with nginx"
+		PASSENGER_VERSION=`passenger-config --version`
+	fi
+
 	ebegin "Creating nginx user and group"
 	enewgroup nginx
 	enewuser nginx -1 -1 /dev/null nginx
