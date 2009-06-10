@@ -9,7 +9,7 @@ inherit autotools eutils flag-o-matic multilib versionator
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 S=${WORKDIR}/${MY_P}
 
-SLOT=$(get_version_component_range 1-2)
+SLOT="1.8"
 MY_SUFFIX=$(delete_version_separator 1 ${SLOT})
 
 DESCRIPTION="An object-oriented scripting language"

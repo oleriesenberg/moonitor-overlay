@@ -7,7 +7,7 @@
 
 inherit autotools eutils flag-o-matic multilib versionator
 
-SLOT=$(get_version_component_range 1-2)
+SLOT="1.8"
 MY_SUFFIX=$(delete_version_separator 1 ${SLOT})
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
