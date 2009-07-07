@@ -13,7 +13,7 @@ HOMEPAGE="http://nginx.net/"
 SRC_URI="http://sysoev.ru/nginx/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="addition debug fastcgi flv imap pcre perl ssl status sub webdav zlib uploadprogress fair passenger random-index ipv6"
 
 DEPEND="dev-lang/perl
