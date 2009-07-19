@@ -1,5 +1,5 @@
-# Copyright 1999-2006 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
+# Copyright 1999-2006 moonitor.org
+# Distributed under the terms of the GNU General Public License v3
 # $Header: $
 
 inherit git cmake-utils
@@ -12,7 +12,7 @@ DESCRIPTION=""
 
 RESTRICT="mirror"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 
 SLOT="0"
 
@@ -23,7 +23,8 @@ IUSE=""
 DEPEND="dev-util/cmake"
 
 RDEPEND=">=dev-lang/python-2.5
-		 dev-python/tek"
+		 dev-python/tek
+		 dev-python/tagpy"
 
 src_unpack(){
 	git_src_unpack
