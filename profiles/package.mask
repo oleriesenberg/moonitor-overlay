@@ -1,3 +1,8 @@
+# Ole Riesenberg <or@oleriesenberg.com> (19 July 2009)
+# app-portage/moonitor is deprecated
+# please use sys-apps/moonitor
+app-portage/moonitor
+
 # Ole Riesenberg <hoodow@moonitor.org> (01 December 2008)
 # libpq 8.3 is now in portage as dev-db/postgresql-base
 # postgresql 8.3 is now in portage as dev-db/postgresql-server
