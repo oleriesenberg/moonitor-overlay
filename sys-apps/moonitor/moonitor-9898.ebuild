@@ -6,7 +6,7 @@ EAPI="2"
 
 EGIT_BRANCH="plasma"
 
-inherit cmake-utils git
+inherit eutils cmake-utils git
 
 EGIT_REPO_URI="git://moonitor.org/moonitor.git"
 
@@ -35,6 +35,12 @@ RDEPEND="${BDEPS}
 
 _modify-cmakelists() {
 	:
+}
+
+pkg_setup() {
+	if use daemon ; then
+		enewuser moonitor
+	fi
 }
 
 src_configure() {
