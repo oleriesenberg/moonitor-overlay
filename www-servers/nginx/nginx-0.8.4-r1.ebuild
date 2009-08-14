@@ -42,6 +42,28 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 	sed -i 's/ make/ \\$(MAKE)/' "${S}"/auto/lib/perl/make || die
+
+	if use uploadprogress ; then
+		# I'd put this in SRC_URI, but curl has to be run specifically like this
+		cd ${DISTDIR}
+		curl -A "Mozilla/4.0" \
+						"http://wiki.nginx.org/images/8/83/Nginx_uploadprogress_module-0.5.tar.gz" \
+						-o ${UPLOADPROGRESS}-0.5.tar.gz || die "Could not download the upload progress module"
+
+		unpack ${UPLOADPROGRESS}-0.5.tar.gz
+		mv ${UPLOADPROGRESS} ${WORKDIR}
+	fi
+
+	if use fair ; then
+		# dirty
+		cd ${DISTDIR}
+		git clone git://github.com/gnosek/nginx-upstream-fair.git ${FAIR} || die "Could not \`git clone\' the upstream-fair module"
+		mv ${FAIR} ${WORKDIR}
+	fi
+
+	if use passenger ; then
+		cp -R ${PASSENGER_ROOT} ${WORKDIR}
+	fi
 }
 
 src_compile() {
@@ -74,7 +96,6 @@ src_compile() {
 	use webdav	&& myconf="${myconf} --with-http_dav_module"
 	use sub		&& myconf="${myconf} --with-http_sub_module"
 	use random-index	&& myconf="${myconf} --with-http_random_index_module"
-	use ipv6	&& myconf="${myconf} --with-ipv6"
 
 	use uploadprogress && myconf="${myconf} --add-module=../${UPLOADPROGRESS}"
 	use fair && myconf="${myconf} --add-module=../${FAIR}"
