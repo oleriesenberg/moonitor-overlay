@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://moonitor.org/moonitor.git"
 
 DESCRIPTION="A dbus monitoring suite for package managers with KDE panel support"
 
-HOMEPAGE="http://trac.moonitor.org"
+HOMEPAGE="http://moonitor.org"
 
 LICENSE="GPL-3"
 
