@@ -8,7 +8,7 @@ NEED_PYTHON="2.5"
 SUPPORT_PYTHON_ABIS="1"
 EHG_REPO_URI="http://bitbucket.org/agr/rope"
 
-inherit distutils
+inherit distutils mercurial
 
 DESCRIPTION="Python refactoring library"
 HOMEPAGE="http://rope.sourceforge.net/"
