@@ -22,6 +22,10 @@ DEPEND=""
 RDEPEND=""
 RESTRICT_PYTHON_ABIS="2.4 3.*"
 
+pkg_setup() {
+	S=${WORKDIR}/${PN}
+}
+
 src_test() {
 	testing() {
 		PYTHONPATH="build-${PYTHON_ABI}/lib:." "$(PYTHON)" ropetest/__init__.py
