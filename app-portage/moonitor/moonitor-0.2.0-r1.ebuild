@@ -11,6 +11,8 @@ ESVN_PROJECT="moonitor-svn"
 
 DESCRIPTION="A dbus monitoring suite for emerge with KDE panel support"
 
+HOMEPAGE="http://moonitor.org"
+
 RESTRICT="mirror"
 
 LICENSE="GPL-2"

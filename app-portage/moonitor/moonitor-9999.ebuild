@@ -8,6 +8,8 @@ EGIT_REPO_URI="git://moonitor.org/moonitor.git"
 
 DESCRIPTION="A dbus monitoring suite for emerge with KDE panel support"
 
+HOMEPAGE="http://moonitor.org"
+
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
