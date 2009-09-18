@@ -24,4 +24,5 @@ RDEPEND="dev-perl/App-CLI
 		 dev-perl/File-Copy-Recursive
 		 dev-perl/Class-Accessor
 		 dev-perl/Time-Progress
-		 dev-perl/Archive-Any"
+		 dev-perl/Archive-Any
+		 dev-perl/DateTime"
