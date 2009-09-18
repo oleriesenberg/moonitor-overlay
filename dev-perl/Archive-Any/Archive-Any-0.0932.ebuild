@@ -9,7 +9,11 @@ SRC_URI="http://search.cpan.org/CPAN/authors/id/C/CM/CMOORE/${P}.tar.gz"
 HOMEPAGE="http://search.cpan.org/~cmoore/Archive-Any-0.0932/"
 
 RDEPEND="dev-perl/Archive-Zip
-		 virtual/perl-Archive-Tar"
+		 virtual/perl-Archive-Tar
+		 dev-perl/Test-Warn
+		 dev-perl/Module-Find
+		 dev-perl/MIME-Types
+		 dev-perl/File-MMagic"
 
 SLOT="0"
 LICENSE="Artistic GPL-2"
