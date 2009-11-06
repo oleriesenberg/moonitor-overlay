@@ -17,7 +17,7 @@ IUSE=""
 USE_RUBY="ruby18 ruby19"
 DEPEND=""
 
-src_install() {
+gem_src_install() {
 	newconfd "${FILESDIR}/god.confd" god
 	newinitd "${FILESDIR}/god.initd" god
 }
