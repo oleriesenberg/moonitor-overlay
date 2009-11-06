@@ -1,0 +1,36 @@
+#!/sbin/runscript
+# $Header: $
+
+opts="start stop restart"
+
+depend() {
+        use net
+}
+
+start() {
+	ebegin "Starting God"
+	if [ ! -f "${GOD_CONFIG}" ]; then
+		eerror "  God config does not exist. (using  ${GOD_CONFIG})"
+		return 1
+	fi
+
+        if [ -f "${PIDFILE}" ]; then
+		einfo "  Removing stale pidfile ${PIDFILE}"
+		rm -f "${PIDFILE}" 1>/dev/null
+	fi
+
+	start-stop-daemon --start \
+		--pidfile ${PIDFILE} \
+		--exec ${GOD_BINARY} \
+		-- -P ${PIDFILE} -c ${GOD_CONFIG} ${MISC_OPTS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping God"
+	start-stop-daemon --stop --quiet \
+		--pidfile ${PIDFILE} \
+		--exec ${GOD_BINARY} stop
+	rm -f "${PIDFILE}"
+	eend $?
+}

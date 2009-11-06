@@ -1,0 +1,9 @@
+# $Header: $
+
+GOD_BINARY="/usr/bin/god"
+
+PIDFILE="/var/run/god.pid"
+
+GOD_CONFIG="/etc/god/main.god"
+
+MISC_OPTS=""
