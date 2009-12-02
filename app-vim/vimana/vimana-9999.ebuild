@@ -7,7 +7,7 @@ EAPI="2"
 inherit perl-module git 
 
 DESCRIPTION="System for searching, installing, and downloading vim scripts"
-HOMEPAGE="http://search.cpan.org/~cornelius/Vimana-0.04/lib/Vimana.pm"
+HOMEPAGE="http://search.cpan.org/~cornelius/Vimana/"
 EGIT_REPO_URI="git://github.com/c9s/Vimana.git"
 LICENSE="Artistic GPL-2"
 SLOT="0"
