@@ -19,6 +19,8 @@ IUSE=""
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
+S="${WORKDIR}/redis-1.1.91-beta"
+
 pkg_setup() {
 	enewgroup redis 75
 	enewuser redis 75 /bin/bash /var/lib/redis redis
@@ -31,6 +33,9 @@ src_install() {
 
 	newconfd "${FILESDIR}/redis.confd" redis
 	newinitd "${FILESDIR}/redis.initd" redis
+
+	dodoc 00-RELEASENOTES BETATESTING.txt BUGS COPYING Changelog README TODO
+	docinto html ; dodoc doc/*
 
 	dobin redis-benchmark redis-cli redis-server
 
