@@ -26,6 +26,10 @@ pkg_setup() {
 	enewuser redis 75 /bin/bash /var/lib/redis redis
 }
 
+src_compile() {
+	ARCH='' emake
+}
+
 src_install() {
 	insinto /etc/
 	doins "${FILESDIR}/redis.conf"
