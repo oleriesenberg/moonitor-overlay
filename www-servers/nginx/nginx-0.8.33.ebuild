@@ -8,13 +8,14 @@ DESCRIPTION="Robust, small and high performance http and reverse proxy server"
 
 UPLOADPROGRESS="nginx_uploadprogress_module"
 FAIR="nginx-upstream-fair"
+REDIS="ngx_http_redis"
 
 HOMEPAGE="http://nginx.net/"
 SRC_URI="http://sysoev.ru/nginx/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="addition debug fair fastcgi flv imap ipv6 passenger pcre perl random-index securelink ssl status sub uploadprogress webdav zlib"
+IUSE="addition debug fair fastcgi flv imap ipv6 passenger pcre perl random-index redis securelink ssl status sub uploadprogress webdav zlib"
 
 DEPEND="dev-lang/perl
 	pcre? ( >=dev-libs/libpcre-4.2 )
@@ -24,7 +25,7 @@ DEPEND="dev-lang/perl
 
 pkg_setup() {
 	if use passenger ; then
-		PASSENGER_ROOT=`passenger-config --root` ||	die "Please install passenger via rubygems to use it with nginx"
+		PASSENGER_ROOT=`passenger-config --root` ||	die "Please install passenger via rubygems and remerge nginx"
 		PASSENGER_VERSION=`passenger-config --version`
 	fi
 
@@ -32,6 +33,7 @@ pkg_setup() {
 	enewgroup ${PN}
 	enewuser ${PN} -1 -1 -1 ${PN}
 	eend ${?}
+
 	if use ipv6; then
 		ewarn "Note that ipv6 support in nginx is still experimental."
 		ewarn "Be sure to read comments on gentoo bug #274614"
@@ -59,6 +61,16 @@ src_unpack() {
 		cd ${DISTDIR}
 		git clone git://github.com/gnosek/nginx-upstream-fair.git ${FAIR} || die "Could not \`git clone\' the upstream-fair module"
 		mv ${FAIR} ${WORKDIR}
+	fi
+
+	if use redis ; then
+		cd ${DISTDIR}
+		curl -A "Mozilla/4.0" \
+						"http://people.freebsd.org/~osa/ngx_http_redis-0.3.1.tar.gz" \
+						-o ngx_http_redis-0.3.1.tar.gz || die "Could not download the redis module"
+
+		unpack ${REDIS}-0.3.1.tar.gz
+		mv ${REDIS}-0.3.1 ${WORKDIR}/${REDIS}
 	fi
 
 	if use passenger ; then
@@ -99,6 +111,7 @@ src_compile() {
 
 	use uploadprogress && myconf="${myconf} --add-module=../${UPLOADPROGRESS}"
 	use fair && myconf="${myconf} --add-module=../${FAIR}"
+	use redis && myconf="${myconf} --add-module=../${REDIS}"
 	use passenger && myconf="${myconf} --add-module=../passenger-${PASSENGER_VERSION}/ext/nginx"
 
 	tc-export CC
