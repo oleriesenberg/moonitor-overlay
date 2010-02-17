@@ -25,4 +25,5 @@ RDEPEND="dev-perl/App-CLI
 		 dev-perl/Class-Accessor
 		 dev-perl/Time-Progress
 		 dev-perl/Archive-Any
-		 dev-perl/DateTime"
+		 dev-perl/DateTime
+		 dev-perl/JSON"
