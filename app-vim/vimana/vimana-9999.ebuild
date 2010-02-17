@@ -16,7 +16,7 @@ IUSE=""
 
 RDEPEND="dev-perl/App-CLI
 		 dev-perl/Cache
-		 dev-perl/File-Path
+		 perl-core/File-Path
 		 dev-perl/File-Type
 		 dev-perl/File-Find-Rule
 		 dev-perl/Exporter-Lite
