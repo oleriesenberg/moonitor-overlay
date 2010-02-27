@@ -24,8 +24,7 @@ DEPEND="dev-util/cmake"
 
 RDEPEND=">=dev-lang/python-2.5
 		 dev-python/tek
-		 media? ( >=media-libs/mutagen-1.16
-				  dev-python/python-musicbrainz )"
+		 media? ( >=media-libs/mutagen-1.16 )"
 
 src_unpack(){
 	git_src_unpack
