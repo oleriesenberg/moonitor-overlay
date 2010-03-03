@@ -32,6 +32,6 @@ src_unpack(){
 }
 
 src_compile() {
-	mycmakeargs="$(cmake-utils_use_with media)"
+	mycmakeargs="$(cmake-utils_use_with media) $(cmake-utils_use_with mail)"
 	cmake-utils_src_compile
 }
