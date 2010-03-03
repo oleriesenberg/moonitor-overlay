@@ -18,13 +18,14 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 
-IUSE="media"
+IUSE="media mail"
 
 DEPEND="dev-util/cmake"
 
 RDEPEND=">=dev-lang/python-2.5
 		 dev-python/tek
-		 media? ( >=media-libs/mutagen-1.16 )"
+		 media? ( >=media-libs/mutagen-1.16 )
+		 mail? ( net-mail/lbdb dev-python/vobject )"
 
 src_unpack(){
 	git_src_unpack
