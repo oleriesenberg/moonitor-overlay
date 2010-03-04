@@ -16,7 +16,7 @@ IUSE=""
 
 RDEPEND="dev-perl/App-CLI
 		 dev-perl/Cache
-		 dev-perl/File-Path
+		 perl-core/File-Path
 		 dev-perl/File-Type
 		 dev-perl/File-Find-Rule
 		 dev-perl/Exporter-Lite
@@ -25,4 +25,6 @@ RDEPEND="dev-perl/App-CLI
 		 dev-perl/Class-Accessor
 		 dev-perl/Time-Progress
 		 dev-perl/Archive-Any
-		 dev-perl/DateTime"
+		 dev-perl/DateTime
+		 dev-perl/JSON
+		 dev-perl/JSON-XS"
