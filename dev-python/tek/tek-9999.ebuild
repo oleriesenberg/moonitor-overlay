@@ -23,7 +23,8 @@ IUSE=""
 DEPEND="dev-util/cmake
 		dev-util/git"
 
-RDEPEND=">=dev-lang/python-2.5"
+RDEPEND=">=dev-lang/python-2.5
+		 dev-python/ruledispatch"
 
 src_unpack(){
 	git_src_unpack
