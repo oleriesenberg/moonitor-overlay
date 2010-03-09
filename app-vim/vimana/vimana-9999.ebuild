@@ -28,4 +28,5 @@ RDEPEND="dev-perl/App-CLI
 		 dev-perl/DateTime
 		 dev-perl/JSON
 		 dev-perl/JSON-XS
-		 dev-perl/Mouse"
+		 dev-perl/Mouse
+		 perl-core/Archive-Extract"
