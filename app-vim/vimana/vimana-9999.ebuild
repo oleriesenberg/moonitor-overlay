@@ -29,4 +29,5 @@ RDEPEND="dev-perl/App-CLI
 		 dev-perl/JSON
 		 dev-perl/JSON-XS
 		 dev-perl/Mouse
+		 dev-perl/HTTP-Lite
 		 perl-core/Archive-Extract"
