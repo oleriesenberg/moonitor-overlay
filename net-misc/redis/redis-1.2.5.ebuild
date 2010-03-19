@@ -31,7 +31,7 @@ src_unpack() {
 }
 
 src_compile() {
-	make || die "make failed"
+	emake CFLAGS="-std=c99 ${CFLAGS}" || die "make failed"
 }
 
 src_install() {
