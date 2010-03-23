@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="dev-util/cmake
-		dev-util/git"
+		dev-vcs/git"
 
 RDEPEND=">=dev-lang/python-2.5
 		 dev-python/ruledispatch"
