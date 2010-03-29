@@ -1,0 +1,11 @@
+--- a/Makefile	2010-03-19 12:19:41.000000000 +0100
++++ b/Makefile	2010-03-19 12:35:17.000000000 +0100
+@@ -10,7 +10,7 @@
+   CFLAGS?= -std=c99 -pedantic -O2 -Wall -W $(ARCH) $(PROF)
+   CCLINK?= -lm
+ endif
+-CCOPT= $(CFLAGS) $(CCLINK) $(ARCH) $(PROF)
++CCOPT= $(CFLAGS) $(CCLINK) $(PROF)
+ DEBUG?= -g -rdynamic -ggdb 
+ 
+ OBJ = adlist.o ae.o anet.o dict.o redis.o sds.o zmalloc.o lzf_c.o lzf_d.o pqsort.o
