@@ -26,13 +26,6 @@ pkg_setup() {
 	S=${WORKDIR}/${PN}
 }
 
-src_test() {
-	testing() {
-		PYTHONPATH="build-${PYTHON_ABI}/lib:." "$(PYTHON)" ropetest/__init__.py
-	}
-	python_execute_function testing
-}
-
 src_install() {
 	distutils_src_install
 	docinto docs
