@@ -4,14 +4,14 @@
 
 EAPI="2"
 
-NEED_PYTHON="2.5"
+PYTHON_DEPEND="2:2.5"
 SUPPORT_PYTHON_ABIS="1"
 EHG_REPO_URI="http://bitbucket.org/agr/rope"
 
 inherit distutils mercurial
 
 DESCRIPTION="Python refactoring library"
-HOMEPAGE="http://rope.sourceforge.net/"
+HOMEPAGE="http://rope.sourceforge.net/ http://pypi.python.org/pypi/rope"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -20,7 +20,6 @@ IUSE=""
 
 DEPEND=""
 RDEPEND=""
-RESTRICT_PYTHON_ABIS="2.4 3.*"
 
 pkg_setup() {
 	S=${WORKDIR}/${PN}
