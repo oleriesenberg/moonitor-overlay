@@ -4,7 +4,7 @@
 
 inherit git
 
-EGIT_REPO_URI="git://gentoo64.net/ndkpp.git"
+EGIT_REPO_URI="git://moonitor.org/ndkpp.git"
 
 DESCRIPTION="A C++ ncurses toolkit"
 

@@ -4,7 +4,7 @@
 
 inherit git cmake-utils
 
-EGIT_REPO_URI="git://gentoo64.net/mootils.git"
+EGIT_REPO_URI="git://moonitor.org/mootils.git"
 
 HOMEPAGE="http://moonitor.org"
 

@@ -4,7 +4,7 @@
 
 inherit git cmake-utils
 
-EGIT_REPO_URI="git://gentoo64.net/tek-utils.git"
+EGIT_REPO_URI="git://moonitor.org/tek-utils.git"
 
 HOMEPAGE=""
 

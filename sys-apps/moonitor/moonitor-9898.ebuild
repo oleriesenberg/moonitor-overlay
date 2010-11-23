@@ -8,7 +8,7 @@ EGIT_BRANCH="plasma"
 
 inherit eutils cmake-utils git
 
-EGIT_REPO_URI="git://gentoo64.net/moonitor.git"
+EGIT_REPO_URI="git://moonitor.org/moonitor.git"
 
 DESCRIPTION="A dbus monitoring suite for package managers with KDE panel support"
 
