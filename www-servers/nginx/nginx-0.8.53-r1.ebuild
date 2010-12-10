@@ -148,6 +148,7 @@ src_prepare() {
 	if use nginx_modules_http_passenger; then
 		cd "${WORKDIR}"/passenger-${PASSENGER_PV}
 		epatch "${FILESDIR}"/passenger-3.0.0-CFLAGS.patch
+		epatch "${FILESDIR}"/passenger-3.0.1-RELEASE.patch
 	fi
 }
 
