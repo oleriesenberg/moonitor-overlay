@@ -22,8 +22,7 @@ IUSE=""
 
 DEPEND="dev-util/cmake"
 
-RDEPEND=">=dev-lang/python-2.5
-		 >=app-portage/eix-0.15.0
+RDEPEND="|| (app-portage/eix sys-apps/paludis[>=0.58.0])
 		 dev-python/tek"
 
 src_unpack(){
